@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_migrate import Migrate, migrate
-from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
+from flask_sqlalchemy import SQLAlchemy
 
 from bolo.config import BaseConfig
 from bolo.broadcast import broadcast
@@ -19,8 +19,7 @@ def create_app(config_class=BaseConfig):
     # Initialize middleware/extensions
     initialize_extensions(app)
     # Register blueprints
-    app.register_blueprint(broadcast)
-    # register_blueprints(app)
+    register_blueprints(app)
 
     return app
 
@@ -36,6 +35,9 @@ def initialize_extensions(app):
 def register_blueprints(app):
     from bolo.broadcast import broadcast
     app.register_blueprint(broadcast)
+
+    from bolo.auth import auth
+    app.register_blueprint(auth)
 
 
 app = create_app()

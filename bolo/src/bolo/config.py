@@ -9,12 +9,13 @@ load_dotenv(dotenv_path=DOTENV_PATH, verbose=True)
 
 
 class BaseConfig:
-    SQLALCHEMY_DATABASE_URI = os.environ.get('SQLALCHEMY_DATABASE_URI')
+    SQLALCHEMY_DATABASE_URI = "sqlite:///bolo.db" or os.environ.get(
+        'DATABASE_URL')
     SQLALCHEMY_TRACK_MODIFICATIONS = os.environ.get(
         'SQLALCHEMY_TRACK_MODIFICATIONS')
-    SQLALCHEMY_ECHO = os.environ.get('SQLALCHEMY_ECHO')
     JSON_SORT_KEYS = os.environ.get('JSON_SORT_KEYS').lower() == "True".lower()
     PERMANENT_SESSION_LIFETIME = datetime.timedelta(minutes=0.5)
+    BASE_URL = os.environ.get('BASE_URL')
 
 
 # class DevConfig(BaseConfig):
