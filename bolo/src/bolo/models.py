@@ -64,7 +64,7 @@ class Broadcast(db.Model):
         self.user_id = User.query.filter_by(id=user.id).first().id
 
     def get_author(self):
-        return User.query.filter_by(id=self.user_id).first().username
+        return User.query.filter_by(id=self.user_id).first()
 
     @staticmethod
     def post(message, user):
