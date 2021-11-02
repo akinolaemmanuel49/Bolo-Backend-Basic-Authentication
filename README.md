@@ -16,7 +16,7 @@ A simple API utilizing HTTPBasicAuth for authentication.
 
 ## Running the project.
 
-This project was developed using the python version 3.10, but anything greater than python version 3.6 should work fine. You can test the endpoints using an API testing tool. For this project I will be using postman. I have included a postman collection in the project. If you do not already have postman installed you can download the desktop app using this [link]().
+This project was developed using the python version 3.10, but anything greater than python version 3.6 should work fine. You can test the endpoints using an API testing tool. For this project I will be using postman. I have included a postman collection in the project. If you do not already have postman installed you can download the desktop app using this [link](https://dl.pstmn.io/download/latest/win64).
 
 1. Using console, navigate into the bolo directory. You can use either poetry or virtualenv to create a virtual environment for the project.
 
