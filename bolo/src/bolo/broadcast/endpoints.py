@@ -1,5 +1,4 @@
 from flask import request, jsonify, make_response
-from flask.globals import g
 from sqlalchemy.exc import SQLAlchemyError
 
 from bolo.broadcast import broadcast

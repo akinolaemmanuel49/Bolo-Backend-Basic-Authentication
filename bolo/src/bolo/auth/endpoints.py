@@ -1,6 +1,3 @@
-from types import resolve_bases
-from flask_httpauth import HTTPBasicAuth
-from werkzeug.security import check_password_hash
 from flask import request, jsonify, make_response, redirect, current_app
 from sqlalchemy.exc import SQLAlchemyError
 
