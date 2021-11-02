@@ -7,8 +7,7 @@ from bolo.models import Broadcast, db
 from bolo.helpers import basic_auth
 
 
-@broadcast.route('', methods=['GET', 'POST'])
-@basic_auth.login_required
+@broadcast.route('', methods=['POST'])
 def create_broadcast():
     if request.method == 'POST' and request.json['message']:
         message = request.json['message']
@@ -35,21 +34,27 @@ def create_broadcast():
             response = make_response(response)
             return response
 
-    if request.method == 'GET':
-        broadcasts = []
 
-        _broadcasts = Broadcast.query.all()
+@broadcast.route('', methods=['GET'])
+def get_all_broadcasts():
+    broadcasts = []
 
-        for broadcast in _broadcasts:
-            broadcasts.append({
-                "id": broadcast.id,
-                "message": broadcast.message,
-                "author": broadcast.get_author().username,
-                "updated_on": broadcast.updated_on
-            })
+    # NOTE This would be very inefficient in databases 
+    # with large amounts of data as it would take a very 
+    # long time for the request to finish it would be best 
+    # to paginate the result of the query.
+    _broadcasts = Broadcast.query.all()
 
-        response = jsonify(broadcasts)
-        return response
+    for broadcast in _broadcasts:
+        broadcasts.append({
+            "id": broadcast.id,
+            "message": broadcast.message,
+            "author": broadcast.get_author().username,
+            "updated_on": broadcast.updated_on
+        })
+
+    response = jsonify(broadcasts)
+    return response
 
 
 @broadcast.route('/<id>', methods=['PUT'])

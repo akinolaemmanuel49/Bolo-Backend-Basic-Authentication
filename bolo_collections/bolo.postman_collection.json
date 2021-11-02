@@ -1,0 +1,221 @@
+{
+	"info": {
+		"_postman_id": "3ce30d2b-5f98-4d3f-920b-2394bbdacba6",
+		"name": "bolo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "create a new user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/user",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"user"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Broadcast",
+			"item": [
+				{
+					"name": "create a new broadcast",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/broadcast",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"broadcast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all broadcast",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/broadcast",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"broadcast"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get a broadcast",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/broadcast/<broadcast_id>",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"broadcast",
+								"<broadcast_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update a broadcast",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"Updated this is a message ***\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/broadcast/<broadcast_id>",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"broadcast",
+								"<broadcast_id>"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete a broadcast",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/broadcast/<broadcast_id>",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"broadcast",
+								"<broadcast_id>"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "password",
+				"value": "",
+				"type": "string"
+			},
+			{
+				"key": "username",
+				"value": "",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": "127.0.0.1:5000"
+		}
+	]
+}
