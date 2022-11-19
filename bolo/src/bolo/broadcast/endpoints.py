@@ -7,6 +7,7 @@ from bolo.helpers import basic_auth
 
 
 @broadcast.route('', methods=['POST'])
+@basic_auth.login_required
 def create_broadcast():
     if request.method == 'POST' and request.json['message']:
         message = request.json['message']
